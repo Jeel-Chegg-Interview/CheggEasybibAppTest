@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="EasyBibTestSuite" verbose="5">
+	<test name="EasyBibLoginTests" thread-count="4">
+		<classes>
+		<class name = "verifyEasybibFunctionalities.TestCitationsActionMenu" />
+		<class name = "verifyEasybibFunctionalities.TestCopyModal" />
+		<class name = "verifyEasybibFunctionalities.VerifyButtons" />
+		<class name = "verifyEasybibFunctionalities.VerifyExportModal" />
+		</classes>
+	</test>
+</suite>
