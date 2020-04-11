@@ -29,7 +29,7 @@ public class CitationPage {
 	@FindBy(xpath = "//div[@data-test-id='dropdown-copy-citation']")
 	WebElement copyCitationButton;
 	
-	@FindBy(xpath = "//div[@data-test-id='dropdown-copy-citation']")
+	@FindBy(xpath = "//div[contains(@class,'sc-fOICqy')]//child::div[text()='Citation copied']")
 	WebElement copySuccessfulModal;
 	
 	// Constructor to initialize driver and load web element using PageFactory
@@ -52,6 +52,10 @@ public class CitationPage {
 	
 	public WebElement exportModalElement() {
 		return exportModal;
+	}
+	
+	public WebElement citationMenuButtonElement() {
+		return citationMenuButton;
 	}
 	
 	public WebElement citationActionsMenuElement() {
