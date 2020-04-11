@@ -22,7 +22,7 @@ public class TestCopyModal {
 	}
 
 	@Test
-	public void verifyCitationActionsMenu() {
+	public void verifyCopySuccessfulModal() {
 
 		CitationPage cp = new CitationPage(driver);
 
