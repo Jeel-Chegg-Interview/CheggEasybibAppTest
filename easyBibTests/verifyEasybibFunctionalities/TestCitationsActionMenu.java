@@ -1,5 +1,6 @@
 package verifyEasybibFunctionalities;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -25,6 +26,10 @@ public class TestCitationsActionMenu {
 
 		CitationPage cp = new CitationPage(driver);
 
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		// Scrolling down to the element
+		js.executeScript("arguments[0].scrollIntoView(true);", cp.citationMenuButtonElement());
+		
 		// Clicking on Citations Menu button
 		cp.citationMenuButtonElement().click();
 

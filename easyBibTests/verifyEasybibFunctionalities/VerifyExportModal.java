@@ -1,5 +1,6 @@
 package verifyEasybibFunctionalities;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -29,6 +30,10 @@ public class VerifyExportModal {
 	public void verifyExportModal() {
 		
 		CitationPage cp = new CitationPage(driver);
+		
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		// Scrolling down to the element
+		js.executeScript("arguments[0].scrollIntoView(true);", cp.exportButtonElement());
 		
 		// Clicking on Export button
 		cp.exportButtonElement().click();

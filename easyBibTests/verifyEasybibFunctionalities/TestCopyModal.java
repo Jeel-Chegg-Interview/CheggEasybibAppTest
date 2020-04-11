@@ -10,41 +10,36 @@ import org.testng.annotations.Test;
 import initialSettings.BrowserSetting;
 import objectRepository.CitationPage;
 
-/**
- * This class verifies the presence of certain buttons on Citations page
- * @author Jeel Patel
- * @version 1.0
- *
- */
-public class VerifyButtons {
+public class TestCopyModal {
 	BrowserSetting brSet;
 	WebDriver driver;
 
 	@BeforeClass
-	public void driverInitialization(){
+	public void driverInitialization() {
 
 		brSet = new BrowserSetting();
 		driver = brSet.BrowserSettings();
 	}
+
 	@Test
-	public void verifyButtonPresence() {
-		
+	public void verifyCitationActionsMenu() {
+
 		CitationPage cp = new CitationPage(driver);
-		
+
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		// Scrolling down to the element
-		js.executeScript("arguments[0].scrollIntoView(true);", cp.copyAllButtonElement());
+		js.executeScript("arguments[0].scrollIntoView(true);", cp.citationMenuButtonElement());
 		
-		// Verify "Copy All" button presence
-		Assert.assertTrue(cp.copyAllButtonElement().isDisplayed());
+		// Clicking on "Citations Menu" button
+		cp.citationMenuButtonElement().click();
+
+		// Clicking on "Copy citation" option
+		cp.copyCitationButtonElement().click();
 		
-		// Verify "Export" button presence
-		Assert.assertTrue(cp.exportButtonElement().isDisplayed());
-		
-		// Verify "Save" button presence
-		Assert.assertTrue(cp.saveButtonElement().isDisplayed());
-		}
-	
+		// Verify "Copy Successful Modal" opened after clicking the "Copy citation" option from the menu
+		Assert.assertTrue(cp.copySuccessfulModalElement().isDisplayed());
+	}
+
 	@AfterClass
 	public void driverClosure() {
 		driver.close();
